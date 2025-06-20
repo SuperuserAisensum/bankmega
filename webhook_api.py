@@ -3,6 +3,7 @@ import requests
 import os
 from typing import Optional
 import logging
+import uvicorn
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -102,4 +103,8 @@ async def generate_image(request: Request):
             error_detail = str(e)
             status_code = 500
         
-        raise HTTPException(status_code=status_code, detail=error_detail) 
+        raise HTTPException(status_code=status_code, detail=error_detail)
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
