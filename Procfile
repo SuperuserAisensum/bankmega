@@ -1,1 +1,1 @@
-web: uvicorn rnd_smoothen2:app --host 0.0.0.0 --port $PORT 
+   web: uvicorn webhook_api:app --host 0.0.0.0 --port $PORT
